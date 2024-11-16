@@ -13,8 +13,9 @@ A simple flight planning application with RESTful API endpoints for managing cit
 
 Make sure to preserve the API and most of `flight_planner/routes.py` - edit to fit your own services implementation.
 
-*Note*: The `test_services.py` file suggests logic tests for your services implementation. Feel free to take it or leave it.
-Similarly, `Dockerfile` and `setup.py` are provided optionally.
+*Note*: The `test_services.py` file provides basic logic tests for your services implementation. Your code should pass these tests if it is valid.
+
+`Dockerfile` and `setup.py` are provided optionally.
 
 Basic points: 15pts (For correct implementation of the base task)
 
@@ -23,6 +24,11 @@ Basic points: 15pts (For correct implementation of the base task)
 * For file-based storage (both loading and saving) (+2 pt)
 * For SQL-based storage (both loading and saving) (+2 pt)
 * For correct and passing unit tests (test_services.py) (+1 pt)
+
+**NOTE**: In case you're providing multiple storage mechanisms, your services layer should select the appropriate data store (In memory / File-based / SQL-based) based on the value of the `DATA_STORE` environment variable.
+If `DATA_STORE` is not set, or `inmemory`, use the In Memory store. If it is equal to `file`, use the File-based store. If it is equal to `sql`, use the SQL-based store.
+
+**NOTE**: Your data stores should have only optional arguments, thus allowing instantiation without any arguments.
 
 ## Installation
 
